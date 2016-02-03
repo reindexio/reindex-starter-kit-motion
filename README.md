@@ -1,6 +1,8 @@
 # reindex-starter-kit-flint
 
-Sample code to get started with Reindex, Flint and Relay.
+Sample code to get started with
+[Reindex](https://www.reindex.io/?utm_source=github&utm_campaign=flint),
+[Flint](https://flintjs.com) and Relay.
 
 Fork and clone the repository.
 
