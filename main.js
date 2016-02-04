@@ -5,7 +5,7 @@ const reindex = new Reindex('http://localhost:5000')
 Relay.injectNetworkLayer(reindex.getRelayNetworkLayer())
 
 view Main {
-  let loggedIn = null
+  let loggedIn = reindex.isLoggedIn()
   const checkToken = () => {
     loggedIn = reindex.isLoggedIn()
   }
@@ -22,7 +22,7 @@ view Main {
 
   <h1>Welcome to Reindex and Flint!</h1>
   <container>
-    <App if={loggedIn} onLogout={reindex.logout} />
+    <App if={loggedIn} onLogout={() => reindex.logout()} />
     <Login if={!loggedIn} onLogin={handleLogin} />
   </container>
 

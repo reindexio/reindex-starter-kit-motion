@@ -17,7 +17,7 @@ view App {
   prop onLogout
 
   <Relay.RootContainer
-    route={new ProfileRoute()}
+    {...{route: new ProfileRoute()}}
     Component={Flint.getView('Profile')}
     forceFetch={true}
     renderFetched={data => <Profile {...data} onLogout={onLogout} />}

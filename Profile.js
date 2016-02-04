@@ -42,16 +42,18 @@ view Profile {
     return active.length > 0 ? active[0] : null
   }
 
-  let active = null
-  on.change(() => {
-    active = getActive()
-  })
-
   <h1>Welcome to Reindex!</h1>
-  <status if={active}>
-    You are user {active.displayName}
-  </status>
-  <id>Your Reindex ID is {viewer.user.id}</id>
-  <div>You are logged in with {active.type}</div>
+  <User if={viewer} id={viewer.user.id} info={getActive()} />
   <button onClick={onLogout}>Logout</button>
+}
+
+view User {
+  prop id
+  prop info = {}
+
+  <status>
+    You are user {info.displayName}
+  </status>
+  <id>Your Reindex ID is {id}</id>
+  <div>You are logged in with {info.type}</div>
 }
