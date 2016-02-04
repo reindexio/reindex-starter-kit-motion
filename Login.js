@@ -1,26 +1,12 @@
 view Login {
-  const handleLogin = (type) => {
-    if (view.props.onLogin) {
-      view.props.onLogin(type);
-    }
-  };
+  prop onLogin = () => {}
 
-  <flex>
-    <button onClick={handleLogin.bind(null, 'google')}>
-      Login with Google
-    </button>
-    <button onClick={handleLogin.bind(null, 'facebook')}>
-      Login with Facebook
-    </button>
-    <button onClick={handleLogin.bind(null, 'github')}>
-      Login with Github
-    </button>
-    <button onClick={handleLogin.bind(null, 'twitter')}>
-      Login with Twitter
-    </button>
-  </flex>
+  <button onClick={() => onLogin('google')}>Login with Google</button>
+  <button onClick={() => onLogin('facebook')}>Login with Facebook</button>
+  <button onClick={() => onLogin('github')}>Login with Github</button>
+  <button onClick={() => onLogin('twitter')}>Login with Twitter</button>
 
-  $flex = {
+  $ = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -28,5 +14,5 @@ view Login {
 
   $button = {
     flex: '0 0 auto',
-  };
+  }
 }

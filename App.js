@@ -14,13 +14,12 @@ ProfileRoute.queries = {
 };
 
 view App {
+  prop onLogout
+
   <Relay.RootContainer
-    {...{ route: new ProfileRoute() }}
+    route={new ProfileRoute()}
     Component={Flint.getView('Profile')}
     forceFetch={true}
-    renderFetched={(data) => {
-      return (
-        <Profile {...data} onLogout={view.props.onLogout} />
-      );
-    }} />
+    renderFetched={data => <Profile {...data} onLogout={onLogout} />}
+   />
 }
