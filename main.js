@@ -1,56 +1,34 @@
-import Relay from 'react-relay';
-
+import Relay from 'react-relay'
 import Reindex from 'reindex-js';
 
-const reindex = new Reindex('http://localhost:5000');
-Relay.injectNetworkLayer(reindex.getRelayNetworkLayer());
+const reindex = new Reindex('http://localhost:5000')
+Relay.injectNetworkLayer(reindex.getRelayNetworkLayer())
 
 view Main {
-  let isLoggedIn = reindex.isLoggedIn();
-
-  const handleTokenChange = () => {
-    isLoggedIn = reindex.isLoggedIn();
-  };
+  let loggedIn = null
+  const checkToken = () => {
+    loggedIn = reindex.isLoggedIn()
+  }
 
   const handleLogin = (type) => {
-    reindex.login(type).catch((error) => {
-      alert(error.message);
-    });
-  };
+    reindex.login(type).catch(({ message }) => alert(message))
+  }
 
-  const handleLogout = () => {
-    reindex.logout();
-  };
-
-  on.mount(() => {
-    reindex.addListener('tokenChange', handleTokenChange);
-  });
+  reindex.addListener('tokenChange', checkToken)
 
   on.unmount(() => {
-    reindex.removeListener('tokenChange', handleTokenChange);
-  });
+    reindex.removeListener('tokenChange', checkToken)
+  })
 
-  view.render(() => {
-    let subview;
-    if (isLoggedIn) {
-      subview = <App onLogout={handleLogout} />
-    } else {
-      subview = <Login onLogin={handleLogin} />
-    }
+  <h1>Welcome to Reindex and Flint!</h1>
+  <container>
+    <App if={loggedIn} onLogout={reindex.logout} />
+    <Login if={!loggedIn} onLogin={handleLogin} />
+  </container>
 
-    return (
-      <wrapper>
-        <h1>Welcome to Reindex and Flint!</h1>
-        <div>
-          {subview}
-        </div>
-      </wrapper>
-    );
-  });
-
-  $wrapper = {
+  $ = {
     width: '50%',
     textAlign: 'center',
     margin: '0 auto',
-  };
+  }
 }
