@@ -12,14 +12,6 @@ Install motion
 npm install -g motion
 ```
 
-Currently you need to manually install some build dependencies for Motion.
-
-```
-cd .motion
-npm install
-```
-
-
 Set `REINDEX_URL` env variable to be your be your Reindex app url. Set
 `REINDEX_TOKEN` to be your Reindex admin token.
 
