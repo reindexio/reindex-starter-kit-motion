@@ -1,0 +1,18 @@
+{
+  "author": "",
+  "name": "motion-app-reindex-starter-kit-motion",
+  "repository": "https://github.com/reindex-starter-kit-motion",
+  "description": "",
+  "version": "1.0.0",
+  "main": "",
+  "scripts": {},
+  "dependencies": {
+    "babel-relay-plugin": "^0.6.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-relay": "^0.7.1",
+    "reindex-cli": "^0.3.4",
+    "reindex-js": "^0.3.1"
+  },
+  "installed": []
+}
