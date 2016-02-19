@@ -6,10 +6,10 @@ Sample code to get started with
 
 Fork and clone the repository.
 
-Install motion
+Install Motion and Reindex
 
 ```
-npm install -g motion
+npm install -g motion reindex-cli
 ```
 
 Set `REINDEX_URL` env variable to be your be your Reindex app url. Set

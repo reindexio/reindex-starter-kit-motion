@@ -1,3 +1,3 @@
 BASE=$(dirname $0)
 
-$BASE/reindex schema-relay $BASE/../.motion/RelaySchema.json
+reindex schema-relay $BASE/../.motion/RelaySchema.json
